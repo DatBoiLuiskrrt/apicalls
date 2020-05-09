@@ -5,6 +5,7 @@ import styled from "styled-components";
 const NabVar = styled.div`
     background-color:#348AC7;
     border-bottom: 1px solid lightgrey;
+    color: white;
     
 `
 
@@ -16,7 +17,7 @@ const Nb = (props) => {
   return (
     <NabVar>
       <Navbar color="faded" light>
-        <NavbarBrand href="/" className="mr-auto">Welcome</NavbarBrand>
+        <NavbarBrand href="/" className="mr-auto">Recipe Book</NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>

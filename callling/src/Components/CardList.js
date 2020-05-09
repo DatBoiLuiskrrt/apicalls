@@ -22,7 +22,7 @@ export default function MyCardData() {
     return (
         <>
         {data.map( props => ( 
-            <Cart title={props}/>
+            <Cart myData={props}/>
         ))}
         </>
     )
