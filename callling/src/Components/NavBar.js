@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import styled from "styled-components";
+
+const NabVar = styled.div`
+    background-color:#348AC7;
+    border-bottom: 1px solid lightgrey;
+    
+`
 
 const Nb = (props) => {
   const [collapsed, setCollapsed] = useState(true);
@@ -7,14 +14,14 @@ const Nb = (props) => {
   const toggleNavbar = () => setCollapsed(!collapsed);
 
   return (
-    <div>
+    <NabVar>
       <Navbar color="faded" light>
-        <NavbarBrand href="/" className="mr-auto">reactstrap</NavbarBrand>
+        <NavbarBrand href="/" className="mr-auto">Welcome</NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink href="https://www.linkedin.com/in/datboiluiskrrt/">Linkedin</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
@@ -22,7 +29,7 @@ const Nb = (props) => {
           </Nav>
         </Collapse>
       </Navbar>
-    </div>
+    </NabVar>
   );
 }
 
