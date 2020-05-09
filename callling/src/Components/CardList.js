@@ -3,28 +3,27 @@ import axios from "axios";
 import Cart from "./Card";
 
 export default function MyCardData() {
-    const [data, setData] = useState({});
-    const API = "https://api.themoviedb.org/3/movie/latest?api_key=<<api_key>>&language=en-US";
-    const API_KEY = "7ef6152a444c38c3338ad6ca46aa51c2";
+    const [data, setData] = useState([]);
 
-    useEffect(() => {
-        axios
-            .get(`https://api.themoviedb.org/3/movie/latest?api_key=${API_KEY}&language=en-US`)
-            .then( res => {
-                const movies = res.data
-                setData(movies);
-                console.log(movies);
-            })
-            .catch(error => {
-                console.log("API not working ", error)
-            })
-          
+    const API = "https://api.themoviedb.org/3/movie/latest?api_key=<<api_key>>&language=en-US";
+
+    const APP_KEY = "4fed241c";
+
+    useEffect( () => {
+        getRecipes();
     },[]);
+    
+  const getRecipes = async () => {
+    const response = await fetch(`https://api.edamam.com/search?q=chicken&app_id=4fed241c&app_key=c6f26d054410ef039ffc2fc20ddb4fb4`);
+    const data = await response.json();
+    setData(data.hits);
+    console.log(data);
+  }
     return (
         <>
-        {data.map( props => {
-            return <Cart data={props}/>
-        })}
+        {data.map( props => ( 
+            <Cart title={props}/>
+        ))}
         </>
     )
 };
